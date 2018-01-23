@@ -1,7 +1,7 @@
 from antlr4 import *
 
-from ContractLexer import ContractLexer
-from ContractParser import ContractParser
+from MyGrammarLexer import MyGrammarLexer
+from MyGrammarParser import MyGrammarParser
 
 
 def print_tree(tree, lev):
@@ -15,9 +15,9 @@ def print_tree(tree, lev):
 
 def main(code):
     codeStream = InputStream(code)
-    lexer = ContractLexer(codeStream)
+    lexer = MyGrammarLexer(codeStream)
     stream = CommonTokenStream(lexer)
-    parser = ContractParser(stream)
+    parser = MyGrammarParser(stream)
     tree = parser.program()
     print_tree(tree, 0)
     print(tree.toStringTree(recog=parser))
